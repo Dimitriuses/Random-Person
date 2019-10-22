@@ -1,1 +1,10 @@
 <p>person-list works!</p>
+<div class="row">
+    <div class="col">
+        <ul class="list-group">
+            <a class="list-group-item" style="cursor: pointer" *ngFor="let p of PersonList">
+                {{ p.gender }} {{ p.name }} {{ p.surname }} {{ p.year }}
+            </a> 
+        </ul>
+    </div>
+</div>

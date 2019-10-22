@@ -1,1 +1,19 @@
 <p>person works!</p>
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success">Generate</button>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <app-person-list (getSelectedPerson)="activePerson = $event"></app-person-list>
+    </div>
+    <div class="col-md-7">
+        <app-person-detail *ngIf="activePerson; else eventInfo" [person]="activePerson"></app-person-detail>
+        <ng-template #eventInfo>
+            <h3>Select Person!</h3>
+        </ng-template>
+    </div>
+</div>
+<!--<app-person-list></app-person-list>
+<app-person-detail></app-person-detail>-->
