@@ -16,9 +16,27 @@ export class PersonListComponent implements OnInit {
   ngOnInit() {
     this.PersonList = this.personService.getAllPersons();
   }
+  
 
   onPersonSelected(person:Person){
     this.getSelectedPerson.emit(person);
   }
+
+  Update(){
+    this.PersonList = this.personService.getAllPersons();
+  }
+
+  Delete(){
+
+  }
+
+  onGenerate(){
+    //console.log("Generating...");
+    this.personService.generatePerson();
+    //this.Update();
+    //console.log("Generated");
+  }
+
+  
 
 }

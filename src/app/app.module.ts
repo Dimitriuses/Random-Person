@@ -7,14 +7,16 @@ import { PersonComponent } from './person/person.component';
 import { PersonListComponent } from './person/person-list/person-list.component';
 import { PersonDetailComponent } from './person/person-detail/person-detail.component';
 
-import {PersonService} from "./person/person.service"
+import {PersonService} from "./person/person.service";
+import { PersonItemComponent } from './person/person-list/person-item/person-item.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonComponent,
     PersonListComponent,
-    PersonDetailComponent
+    PersonDetailComponent,
+    PersonItemComponent
   ],
   imports: [
     BrowserModule,
