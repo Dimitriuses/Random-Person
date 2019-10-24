@@ -12,7 +12,7 @@
 <div class="row">
     <div class="col">
         <app-person-item *ngFor="let person of PersonList" [singlePerson]="person" 
-        (selectedPerson)="onPersonSelected(person)"></app-person-item>
+        (selectedPerson)="onPersonSelected(person)" (DeletedPerson)="onDeletePerson(person)"></app-person-item>
         <!--<ul class="list-group">
             <a class="list-group-item" style="cursor: pointer" (click)="onPersonSelected()" *ngFor="let p of PersonList">
                 {{ p.gender }} {{ p.name }} {{ p.surname }} {{ p.year }}

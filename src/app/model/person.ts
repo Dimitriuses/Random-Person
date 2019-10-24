@@ -6,8 +6,9 @@ export default class Person {
     year: number;
     phone: string;
     email: string;
+    img:string;
 
-    constructor(name: string, surname: string,fname: string,gender:string,year:number,phone:string,email:string){
+    constructor(name: string, surname: string,fname: string,gender:string,year:number,phone:string,email:string,img:string){
         this.name = name;
         this.surname = surname;
         this.faterName = fname;
@@ -15,5 +16,6 @@ export default class Person {
         this.year = year;
         this.phone = phone;
         this.email = email;
+        this.img=img;
     }
 }

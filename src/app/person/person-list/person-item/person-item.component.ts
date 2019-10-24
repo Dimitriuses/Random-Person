@@ -10,12 +10,15 @@ export class PersonItemComponent implements OnInit {
 
   @Input() singlePerson: Person;
   @Output() selectedPerson = new EventEmitter<void>();
-
+  @Output() DeletedPerson = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit() {
   }
   onActivePerson(){
     this.selectedPerson.emit();
+  }
+  onDelete(){
+    this.DeletedPerson.emit();
   }
 }

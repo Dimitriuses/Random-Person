@@ -26,8 +26,10 @@ export class PersonListComponent implements OnInit {
     this.PersonList = this.personService.getAllPersons();
   }
 
-  Delete(){
-
+  onDeletePerson(person:Person){
+    //console.log("del in list");
+    this.personService.DeletePerson(person);
+    this.Update();
   }
 
   onGenerate(){

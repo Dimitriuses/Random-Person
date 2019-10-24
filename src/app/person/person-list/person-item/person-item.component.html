@@ -1,9 +1,10 @@
-<p>person-item works!</p>
-<a style="cursor: pointer" class="list-group-item clearfix" (click)="onActivePerson()" >
-    <div class="pull-left">
-      <h4 class="list-group-item-heading">{{ singlePerson.gender }}</h4>
-      <p class="list-group-item-text">{{ singlePerson.name }}</p>
-      <p class="list-group-item-text">{{ singlePerson.surname }}</p>
-      <p class="list-group-item-text">{{ singlePerson.year }}</p>
-    </div>
-</a>
+<div class="list-group-item clearfix">
+  <a style="cursor: pointer" (click)="onActivePerson()" >
+      <div>
+        <p>{{ singlePerson.name }} {{ singlePerson.surname }} {{ singlePerson.gender }} {{ singlePerson.year }}</p>
+      </div>
+  </a>
+  <button type="button" class="close" (click)="onDelete()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
