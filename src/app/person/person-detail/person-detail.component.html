@@ -1,32 +1,31 @@
 <div class="row">
-        <div class="col-xs-12">
-            <img [src]="person.img" class="img-responsive" style="max-height: 200px;">
-        </div>
-    </div>
-<div class="row">
-    <div class="col-xs-12">
-        <h1>{{person.name}} {{person.surname}} {{person.faterName}}</h1>
+    <div class="col-12">
+        <img [src]="person.img" class="img-fluid mb-2" style="max-height: 200px;"
+             alt="Placeholder avatar for {{ person.gender }}, age {{ person.age }}">
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <p>Gender: {{person.gender}}</p>
+    <div class="col-12">
+        <h1 class="h2">{{ person.name }} {{ person.surname }} {{ person.fatherName }}</h1>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <p>Age: {{person.year}}</p>
+    <div class="col-12">
+        <p>Gender: {{ person.gender }}</p>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <p>Phone: {{person.phone}}</p>
+    <div class="col-12">
+        <p>Age: {{ person.age }}</p>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <p>Email: {{person.email}}</p>
+    <div class="col-12">
+        <p>Phone: {{ person.phone }}</p>
     </div>
 </div>
-
-
+<div class="row">
+    <div class="col-12">
+        <p>Email: {{ person.email }}</p>
+    </div>
+</div>

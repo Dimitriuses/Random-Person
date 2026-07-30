@@ -1,7 +1,7 @@
 <div class="list-group-item clearfix">
-  <a style="cursor: pointer" (click)="onActivePerson()" >
+  <a style="cursor: pointer" (click)="onActivePerson()">
       <div>
-        <p>{{ singlePerson.name }} {{ singlePerson.surname }} {{ singlePerson.gender }} {{ singlePerson.year }}</p>
+        <p class="mb-0">{{ singlePerson.name }} {{ singlePerson.surname }} {{ singlePerson.gender }} {{ singlePerson.age }}</p>
       </div>
   </a>
   <button type="button" class="close" (click)="onDelete()">

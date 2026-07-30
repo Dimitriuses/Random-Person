@@ -1,6 +1,6 @@
-import { Component, OnInit, Output,EventEmitter } from '@angular/core';
-import Person from "../../model/person"
-import {PersonService} from "../person.service";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import Person from '../../model/person';
+import { PersonService } from '../person.service';
 
 @Component({
   selector: 'app-person-list',
@@ -9,36 +9,35 @@ import {PersonService} from "../person.service";
 })
 export class PersonListComponent implements OnInit {
   @Output() getSelectedPerson = new EventEmitter<Person>();
-  PersonList:Person[];
+  personList: Person[];
 
   constructor(private personService: PersonService) { }
 
   ngOnInit() {
-    this.PersonList = this.personService.getAllPersons();
+    this.personList = this.personService.getAllPersons();
   }
-  
 
-  onPersonSelected(person:Person){
+  onPersonSelected(person: Person) {
     this.getSelectedPerson.emit(person);
   }
 
-  Update(){
-    this.PersonList = this.personService.getAllPersons();
+  /*
+   * Still here, and still wired to a button. getAllPersons() hands back a copy,
+   * so this component holds a snapshot that has to be re-read after any change.
+   * In 2019 it was the only way to see a generated person at all.
+   */
+  update() {
+    this.personList = this.personService.getAllPersons();
   }
 
-  onDeletePerson(person:Person){
-    //console.log("del in list");
-    this.personService.DeletePerson(person);
-    this.Update();
+  onDeletePerson(person: Person) {
+    this.personService.deletePerson(person);
+    this.update();
   }
 
-  onGenerate(){
-    //console.log("Generating...");
+  onGenerate() {
     this.personService.generatePerson();
-    //this.Update();
-    //console.log("Generated");
+    this.update();
   }
-
-  
 
 }

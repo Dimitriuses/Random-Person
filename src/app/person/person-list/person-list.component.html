@@ -1,22 +1,13 @@
-<p>person-list works!</p>
 <div class="row">
-    <div class="col-xs-12">
-        <button class="btn btn-success" (click)="onGenerate()">Generate</button>
+    <div class="col-12 mb-3">
+        <button class="btn btn-success mr-2" (click)="onGenerate()">Generate</button>
+        <button class="btn btn-outline-secondary" (click)="update()">Update</button>
     </div>
 </div>
 <div class="row">
-    <div class="col-xs-12">
-        <button class="btn btn-success" (click)="Update()">Update</button>
-    </div>
-</div>
-<div class="row">
-    <div class="col">
-        <app-person-item *ngFor="let person of PersonList" [singlePerson]="person" 
-        (selectedPerson)="onPersonSelected(person)" (DeletedPerson)="onDeletePerson(person)"></app-person-item>
-        <!--<ul class="list-group">
-            <a class="list-group-item" style="cursor: pointer" (click)="onPersonSelected()" *ngFor="let p of PersonList">
-                {{ p.gender }} {{ p.name }} {{ p.surname }} {{ p.year }}
-            </a> 
-        </ul>-->
+    <div class="col-12">
+        <app-person-item *ngFor="let person of personList" [singlePerson]="person"
+            (selectedPerson)="onPersonSelected(person)"
+            (deletedPerson)="onDeletePerson(person)"></app-person-item>
     </div>
 </div>

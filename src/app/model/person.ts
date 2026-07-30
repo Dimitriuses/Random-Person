@@ -1,21 +1,29 @@
 export default class Person {
     name: string;
     surname: string;
-    faterName: string;
-    gender:string;
-    year: number;
+    fatherName: string;
+    gender: string;
+    age: number;
     phone: string;
     email: string;
-    img:string;
+    img: string;
 
-    constructor(name: string, surname: string,fname: string,gender:string,year:number,phone:string,email:string,img:string){
+    constructor(
+        name: string,
+        surname: string,
+        fatherName: string,
+        gender: string,
+        age: number,
+        phone: string,
+        email: string,
+        img: string) {
         this.name = name;
         this.surname = surname;
-        this.faterName = fname;
+        this.fatherName = fatherName;
         this.gender = gender;
-        this.year = year;
+        this.age = age;
         this.phone = phone;
         this.email = email;
-        this.img=img;
+        this.img = img;
     }
 }

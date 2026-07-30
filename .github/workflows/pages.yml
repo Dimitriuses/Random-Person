@@ -1,0 +1,56 @@
+name: Deploy demo to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    env:
+      # Angular CLI 8 runs on webpack 4, which asks OpenSSL for md4. OpenSSL 3
+      # (Node 17+) removed it from the default provider.
+      NODE_OPTIONS: --openssl-legacy-provider
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx ng lint
+
+      # The unit tests have failed since 2019 and are left failing on purpose —
+      # see "Tests" in README.md. Building and deploying is the honest check.
+      - run: npx ng build --prod --base-href /${{ github.event.repository.name }}/
+
+      - name: Assert the emitted base href is the project sub-path
+        run: |
+          grep -q '<base href="/${{ github.event.repository.name }}/">' \
+            dist/rand-person/index.html
+          echo "base href OK"
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist/rand-person
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

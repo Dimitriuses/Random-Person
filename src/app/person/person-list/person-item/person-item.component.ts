@@ -1,24 +1,22 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import Person from "../../../model/person"
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import Person from '../../../model/person';
 
 @Component({
   selector: 'app-person-item',
   templateUrl: './person-item.component.html',
   styleUrls: ['./person-item.component.css']
 })
-export class PersonItemComponent implements OnInit {
+export class PersonItemComponent {
 
   @Input() singlePerson: Person;
   @Output() selectedPerson = new EventEmitter<void>();
-  @Output() DeletedPerson = new EventEmitter<void>();
-  constructor() { }
+  @Output() deletedPerson = new EventEmitter<void>();
 
-  ngOnInit() {
-  }
-  onActivePerson(){
+  onActivePerson() {
     this.selectedPerson.emit();
   }
-  onDelete(){
-    this.DeletedPerson.emit();
+
+  onDelete() {
+    this.deletedPerson.emit();
   }
 }
